@@ -1,0 +1,13 @@
+CREATE DATABASE IF NOT EXISTS landing_cms CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+USE landing_cms;
+CREATE TABLE IF NOT EXISTS pages (
+  id BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+  category_key VARCHAR(50) NOT NULL,
+  title VARCHAR(255) NOT NULL,
+  slug VARCHAR(255) NOT NULL UNIQUE,
+  status ENUM('draft','published') NOT NULL DEFAULT 'draft',
+  blocks_json LONGTEXT NOT NULL,
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  INDEX idx_category (category_key), INDEX idx_status (status)
+);

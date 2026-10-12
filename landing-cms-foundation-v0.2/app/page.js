@@ -1,0 +1,1 @@
+import Link from 'next/link';export default function Home(){return <main style={{padding:40,fontFamily:'Arial'}}><h1>Landing CMS Foundation v0.2</h1><p>Open the dashboard.</p><Link href='/admin'>Open Dashboard</Link></main>}
